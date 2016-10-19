@@ -12,23 +12,38 @@
 </body>
 
 <script>
+    var show_choice = function(){
+    var input = document.getElementsByTagName("input")[0].value;
+    console.log(String(input));
     var video = document.getElementById('video');
     var i = 1;
 
     video.onended = function() {
         i++;
-        video.src = "videos/" + i + ".mp4";
+        video.src = "videos/" + input +"/" + i + ".mp4";
     }
 
     video.onerror = function () {
       i = 1;
-      video.src = "videos/" + 1 + ".mp4";
+      video.src = "videos/" + input +"/" + 1 + ".mp4";
     }
 
 
-    video.src = "videos/1.mp4";
+    video.src = "videos/"+ input +"/1.mp4";
     video.play();
-  
+
+
+
+}
+
+
+
 </script>
+<div>
+  <input name="digit2" style="width: 70%; height: 70%; font-size:20px; text-align: center;" value="" type="text" />
+</div>
+<div>
+  <button type="button" onclick="show_choice()">Submit</button>
+</div>
 
 </html>
